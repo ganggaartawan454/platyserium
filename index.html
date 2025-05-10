@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MADE SIMBAR</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+      background: #fff;
+      color: #333;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 10%;
+      background: #fff;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .logo span {
+      color: #d32f2f;
+    }
+
+    nav a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #333;
+      cursor: pointer;
+    }
+
+    .btn-register {
+      padding: 8px 15px;
+      background: #800000;
+      color: #fff;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+
+    main {
+      padding: 50px 10%;
+      min-height: 60vh;
+    }
+
+    .btn-menu {
+      padding: 10px 20px;
+      background: #b71c1c;
+      color: #fff;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #222;
+      color: #fff;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+      }
+      nav {
+        margin-top: 10px;
+      }
+    }
+  </style>
+
+</head>
+<body>
+
+  <header>
+    <div class="logo">MADE<span>SIMBAR</span></div>
+    <nav>
+      <a onclick="showPage('home')">Home</a>
+      <a onclick="showPage('about')">About</a>
+      <a onclick="showPage('market')">Daily Market</a>
+      <a onclick="showPage('catalog')">Catalog</a>
+      <button class="btn-register" onclick="showPage('register')">Register</button>
+    </nav>
+  </header>
+
+  <main id="content">
+    <!-- Konten halaman aktif -->
+  </main>
+
+  <footer>
+    <p>&copy; 2025 MADE SIMBAR | Simbar Lovers Community</p>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      showPage('home');
+      console.log("Website MADE SIMBAR aktif 🌿");
+    });
+
+    function showPage(page) {
+      const content = document.getElementById("content");
+      let html = "";
+
+      if (page === "home") {
+  html = `
+    <div style="display:flex; flex-wrap:wrap; align-items:center; gap:30px;">
+      <div style="flex:1;">
+        <h1>Selamat Datang di MADE SIMBAR</h1>
+        <p>Temukan berbagai macam tanaman Platycerium terbaik di sini.</p>
+        <button class="btn-menu" onclick="showAlert()">Nulih Simbar</button>
+      </div>
+      <div style="flex:1; text-align:right;">
+        <img src="simbar.jpg.jpeg" alt="Platycerium Simbar" style="max-width:300px; width:100%; border-radius:10px;">
+      </div>
+    </div>
+  `;
+
+      } else if (page === "about") {
+        html = `
+          <h1>Tentang Kami</h1>
+          <p>MADE SIMBAR adalah komunitas pecinta tanaman Platycerium di Bali, menyediakan berbagai jenis Simbar berkualitas.</p>
+          <p>Kami hadir untuk para penghobi tanaman hias dan kolektor eksklusif.</p>
+        `;
+      } else if (page === "market") {
+        html = `
+          <h1>Daily Market</h1>
+          <p>Setiap hari kami update stok tanaman dan promo khusus member.</p>
+          <ul>
+            <li>Simbar jumbo - Rp150.000</li>
+            <li>Simbar sedang - Rp250.000</li>
+            <li>Simbar kecil- Rp500.000</li>
+          </ul>
+        `;
+      } else if (page === "catalog") {
+        html = `
+          <h1>Katalog Tanaman</h1>
+          <p>Lihat berbagai koleksi Platycerium yang tersedia di MADE SIMBAR:</p>
+          <img src="simbar.jpg.jpeg" alt="Platycerium" style="width:300px">
+          <p><strong>Simbar jumbo</strong></p>
+          <img src="platycerium.jpg.jpeg" alt="Platycerium" style="width:300px">
+          <p><strong>Simbar Staghorn Jumbo</strong></p>
+          <img src="foto3.jpg.jpeg" alt="Platycerium" style="width:300px">
+          <p><strong>Simbar sedang</strong></p>
+          <img src="foto4jpg.jpeg" alt="Platycerium" style="width:300px">
+          <p><strong>Simbar sedang</strong></p>
+          <img src="foto5.jpg.jpeg" alt="Platycerium" style="width:300px">
+          <p><strong>Simbar kecil</strong></p>
+        
+        `;
+      } else if (page === "register") {
+        html = `
+          <h1>Form Pendaftaran Member</h1>
+          <form onsubmit="registerAlert(); return false;">
+            <label>Nama:</label><br>
+            <input type="text" required><br><br>
+            <label>Email:</label><br>
+            <input type="email" required><br><br>
+            <button type="submit" class="btn-menu">Daftar Sekarang</button>
+          </form>
+        `;
+      }
+
+      content.innerHTML = html;
+    }
+
+    function showAlert() {
+      alert("Daftar koleksi Simbar akan segera hadir di sini!");
+    }
+
+    function registerAlert() {
+      alert("Terima kasih sudah mendaftar! Kami akan menghubungi Anda segera.");
+    }
+  </script>
+
+</body>
+</html>
